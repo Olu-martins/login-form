@@ -1,0 +1,62 @@
+
+
+body{
+    --color-primary: #009579;
+    --color-primary-dark: #007f67;
+    --color-secondary: #252c6a;
+    --color-error: #cc3333;
+    --color-success: #4bb544;
+    --border-radius: 4px;
+}
+
+
+.main{
+    display: flex;
+    flex-direction: row;
+}
+
+.left-panel{
+  width: 50%;
+  height: 100vh;
+  background: url(assets/undraw_authentication_fsn5.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  object-fit: contain;
+  background-position: bottom;
+  
+}
+
+.right-panel{
+    margin-top: 1%;
+}
+
+.form-hidden{
+    display: none;
+}
+
+.form_message-success{
+    color:var(--color-success);
+}
+
+
+.form_message-error{
+    color:var(--color-error);
+}
+
+.form_input-error{
+    color:var(--color-error);
+    border-color:var(--color-error);
+}
+
+.form_input-error-message{
+    color:var(--color-error)
+}
+
+.form_button:hover{
+    background: var(--color-primary-dark);
+
+}
+
+.form_button:active{
+    transform: scale(0.96);
+}

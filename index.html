@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Login |Validation|</title>
+</head>
+<body>
+  <div class="main">
+    <!-- left-panel -->
+  <section class="section column is-half left-panel"></section>
+  <!-- right panel login / sign up focus -->
+  <section class="section column is-half right-panel">    
+    <div class="container">
+      <div class="columns">
+        <div class="column" >
+          <!-- login form begins -->
+          <form action="" class=" form box" id="login">
+            <h2 class="title is-2 has-text-centered">Login</h2>
+            <div class="field">              
+              <label class="form_message form_message-error label has-text-danger"></label>
+              <div class="form_input-group control">
+                <input class="form_input input"  id="inputEmail" type="text" name="loginEmail" autofocus placeholder="Email: example@gmail.com" required>
+                <label class="form_input-error-message label mb-2 mt-3"></label>
+              </div>
+              <div class="form_input-group control">
+                <input class="form_input input" id="inputPass" type="password" name="loginPassword" autofocus placeholder="Password" required>
+                <label class="form_input-error-message label mb-2 mt-3"></label>
+              </div>              
+            </div>
+            <button class=" form_button button is-primary button is-medium is-fullwidth" type="submit">Sign in</button>                           
+            <p class="form_text has-text-link mt-2">
+              <a href="#" class=" form_link tag is link is is-size-6 mt-3">Forgot your password?</a>
+            </p>
+            <p class="form_text has-text-link mt-2">
+              <a class=" form_link tag is link is is-size-6 mt-3" id="linkCreateAccount">Don't have an account? Create account</a>
+            </p>                                          
+          </form>  
+        </div>
+      </div>
+    </div>    
+    <!--login end  -->
+    <div class="container">
+      <div class="columns">
+        <div class="column" >
+          <!-- sign up form begins -->
+          <form action="" class="form box form-hidden" id="createAccount">
+            <h2 class="title is-2 has-text-centered">Create Account</h2>
+            <div class="field">              
+              <label class="form_message form_message-error label has-text-danger"></label>
+              <div class="form_input-group control">
+                <input class="form_input input" type="text" name="username" autofocus placeholder="Username: At least 8 characters in length" required>
+                <label class="form_input-error-message label mb-2 mt-3"></label>
+              </div>
+              <div class="form_input-group control">
+                <input class="form_input input" type="email" name="email" autofocus placeholder="Email: example@gmail.com" required>
+                <label class="form_input-error-message label mb-2 mt-3"></label>
+              </div>
+              <div class="form_input-group control">
+                <input class="form_input input" type="password" name="password" autofocus placeholder="Password" required>
+                <label class="form_input-error-message label mb-2 mt-3"></label>
+              </div>              
+              <div class="form_input-group control">
+                <input class="form_input input" type="password" name="passwordCheck" autofocus placeholder=" Confirm password" required>
+                <label class="form_input-error-message label mb-2 mt-3"></label>
+              </div> 
+            </div>
+            <button class=" form_button button is-primary button is-medium is-fullwidth" type="submit">Sign Up</button>                                      
+            <p class="form_text has-text-link mt-2">
+              <a class=" form_link tag is link is is-size-6 mt-3" id="linkLogin">Already have an account? Sign-in</a>
+            </p>                                          
+          </form>  
+        </div>
+      </div>
+    </div>    
+  </section>  
+</div>
+
+    <script src="app.js"></script>
+</body>
+</html>
