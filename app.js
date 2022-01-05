@@ -45,17 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     LoginForm.classList.remove("form-hidden");
     CreateAccount.classList.add("form-hidden");
   });
-  // login form element check function call/usage
-  // LoginForm.addEventListener("submit", (e) => {
-  //   e.preventDefault();
-  //   // perform  AJAX / FETCH
 
-  //   showFormSubmitMessage(
-  //     LoginForm,
-  //     "error",
-  //     "Invalid Username/password combination"
-  //   );
-  // });
   // input form element function call/usage
   document.querySelectorAll(".form_input").forEach((inputElement) => {
     inputElement.addEventListener("blur", (e) => {
@@ -122,35 +112,9 @@ CreateAccount.onsubmit = (e) => {
   passwordCheckInput.value = "";
 };
 
-//I commented this out because i used another method below it. This is your own code
-// FUNCTION::::::Login function to check for existing user details, validate, and log user into the dashboard
-
-// let a = [];
-
-// a.push(JSON.parse(localStorage.getItem("users")));
-// console.log(a);
-
-// LoginForm.onsubmit = (e) => {
-//   for (let i = 0; i < a.length; i++) {
-//     const loginEmailInput = LoginForm["loginEmail"];
-//     const loginPasswordInput = LoginForm["loginPassword"];
-//     if (
-//       loginEmailInput.value == [i].email &&
-//       loginPasswordInput.value == [i].password
-//     ) {
-//       //    alert("logged in!")
-//       console.log("logged in");
-//     } else {
-//       // alert("login fail")
-//       console.log("failed");
-//     }
-//   }
-// };
-
-// =====================================================================================
 // loop through the userLoginDatabase and check if the userName and Password matches any account. return true or false.
 
-let usersFromLocalStorage = JSON.parse(localStorage.getItem("users")); // I declared this variable outside isUserValid() so i can access it in other functions. Javascript scope
+let usersFromLocalStorage = JSON.parse(localStorage.getItem("users")); 
 console.log("userfromlocalstorage:", usersFromLocalStorage); // log the database from localStorage
 
 const isUserValid = (userEmail = "", password = "") => {
@@ -169,8 +133,6 @@ const isUserValid = (userEmail = "", password = "") => {
 
 // collect the user details and check using the isUserValid function to verify
 LoginForm.onsubmit = (e) => {
-//   e.preventDefault();
-  // perform  AJAX / FETCH
   //  check if the user has an account in the database stored in localStorage
   if (
     isUserValid(LoginForm["loginEmail"].value, LoginForm["loginPassword"].value)
