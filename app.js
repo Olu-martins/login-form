@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     LoginForm.classList.remove("form-hidden");
     CreateAccount.classList.add("form-hidden");
   });
-
+    
   // input form element function call/usage
   document.querySelectorAll(".form_input").forEach((inputElement) => {
     inputElement.addEventListener("blur", (e) => {
@@ -112,33 +112,25 @@ CreateAccount.onsubmit = (e) => {
   passwordCheckInput.value = "";
 };
 
-// loop through the userLoginDatabase and check if the userName and Password matches any account. return true or false.
-
-let usersFromLocalStorage = JSON.parse(localStorage.getItem("users")); 
-console.log("userfromlocalstorage:", usersFromLocalStorage); // log the database from localStorage
-
-const isUserValid = (userEmail = "", password = "") => {
-  for (i = 0; i < usersFromLocalStorage.length; i++) {
-    // checking if the user details is in the database
+let database = JSON.parse(localStorage.getItem("users"));
+const isUserValid = (email, password) => {
+  for (i = 0; i < database.length; i++) {
     if (
-      userEmail.toLowerCase() ===
-        usersFromLocalStorage[i].email.toLowerCase() &&
-      password.toLowerCase() === usersFromLocalStorage[i].password.toLowerCase()
-    ) {
-      return true; // if the user is found return true.
-    }
-    return false; // this return needed to be outside the if statement otherwise we will get false after every check.
+      database[i].email.toLowerCase() === email.toLowerCase() &&
+      database[i].password.toLowerCase() === password.toLowerCase()
+    )
+      return true;
   }
+  return false;
 };
 
-// collect the user details and check using the isUserValid function to verify
+let currentUser;
 LoginForm.onsubmit = (e) => {
-  //  check if the user has an account in the database stored in localStorage
+//   e.preventDefault();
   if (
     isUserValid(LoginForm["loginEmail"].value, LoginForm["loginPassword"].value)
   ) {
-    console.log(`Welcome! ${usersFromLocalStorage[i].username}.`) &&
-      window.location.href("/dashboard.html"); //   if the user is found, perform an action.
+    currentUser = database[i];
   } else {
     showFormSubmitMessage(
       LoginForm,
@@ -146,4 +138,9 @@ LoginForm.onsubmit = (e) => {
       "Invalid Username/password combination"
     );
   }
+  alert(`Welcome! ${database[i].username}.`, currentUser) &&
+  window.location.href("/dashboard.html"); //   if the user is found, perform an action.
+  console.log(`Welcome! ${database[i].username}.`, currentUser);
 };
+
+
